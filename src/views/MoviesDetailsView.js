@@ -1,4 +1,4 @@
-import React, { Component, lazy, Suspense } from 'react';
+import React, { Component, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -55,16 +55,14 @@ export default class MoviesDetailsView extends Component {
 
             <div className={styles.iner}>
               <MovieCard movie={movie} />
-            </div>
-            <Suspense fallback={<Loader />}>
+            </div>            
               <Switch>
                 <Route path={`${routes.movieId}/cast`} component={MoviesCast} />
                 <Route
                   path={`${routes.movieId}/reviews`}
                   component={MoviesReviews}
                 />
-              </Switch>
-            </Suspense>
+              </Switch>            
           </div>
         )}
         <ToastContainer autoClose={3000} />
